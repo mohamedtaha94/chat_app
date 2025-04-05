@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:chat_app/widgets/user_image_picker.dart';
@@ -54,6 +56,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
         await storageRef.putFile(_selectedImage!);
         final imageUrl = await storageRef.getDownloadURL();
+        // ignore: avoid_print
         print(imageUrl);
 
         await FirebaseFirestore.instance
@@ -88,11 +91,11 @@ class _AuthScreenState extends State<AuthScreen> {
             children: [
               Container(
                 margin: EdgeInsets.only(
-                  top: 30.r,
-                  bottom: 20.r,
-                  left: 20.r,
-                  right: 20.r,
-                ),
+                  top: 30,
+                  bottom: 20,
+                  left: 20,
+                  right: 20,
+                ).r,
                 width: 200.w,
                 child: Image.asset('assets/images/chat.png'),
               ),

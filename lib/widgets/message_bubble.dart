@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // A MessageBubble for showing a single chat message on the ChatScreen.
 class MessageBubble extends StatelessWidget {
@@ -47,7 +48,7 @@ class MessageBubble extends StatelessWidget {
       children: [
         if (userImage != null)
           Positioned(
-            top: 15,
+            top: 15.r,
             // Align user image to the right, if the message is from me.
             right: isMe ? 0 : null,
             child: CircleAvatar(
@@ -55,13 +56,13 @@ class MessageBubble extends StatelessWidget {
                 userImage!,
               ),
               backgroundColor: theme.colorScheme.primary.withAlpha(180),
-              radius: 23,
+              radius: 23.r,
             ),
           ),
         Container(
           // Add some margin to the edges of the messages, to allow space for the
           // user's image.
-          margin: const EdgeInsets.symmetric(horizontal: 46),
+          margin:  EdgeInsets.symmetric(horizontal: 46.w),
           child: Row(
             // The side of the chat screen the message should show at.
             mainAxisAlignment:
@@ -73,13 +74,13 @@ class MessageBubble extends StatelessWidget {
                 children: [
                   // First messages in the sequence provide a visual buffer at
                   // the top.
-                  if (isFirstInSequence) const SizedBox(height: 18),
+                  if (isFirstInSequence)  SizedBox(height: 18.h),
                   if (username != null)
                     Padding(
                       padding: const EdgeInsets.only(
                         left: 13,
                         right: 13,
-                      ),
+                      ).r,
                       child: Text(
                         username!,
                         style: const TextStyle(
@@ -102,33 +103,33 @@ class MessageBubble extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                         topLeft: !isMe && isFirstInSequence
                             ? Radius.zero
-                            : const Radius.circular(12),
+                            :  Radius.circular(12.r),
                         topRight: isMe && isFirstInSequence
                             ? Radius.zero
-                            : const Radius.circular(12),
-                        bottomLeft: const Radius.circular(12),
-                        bottomRight: const Radius.circular(12),
+                            :  Radius.circular(12.r),
+                        bottomLeft:  Radius.circular(12.r),
+                        bottomRight:  Radius.circular(12.r),
                       ),
                     ),
                     // Set some reasonable constraints on the width of the
                     // message bubble so it can adjust to the amount of text
                     // it should show.
-                    constraints: const BoxConstraints(maxWidth: 200),
+                    constraints:  BoxConstraints(maxWidth: 200.w),
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 14,
-                    ),
+                    ).r,
                     // Margin around the bubble.
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 4,
-                      horizontal: 12,
+                    margin:  EdgeInsets.symmetric(
+                      vertical: 4.h,
+                      horizontal: 12.w,
                     ),
                     child: Text(
                       message,
                       style: TextStyle(
                         // Add a little line spacing to make the text look nicer
                         // when multilined.
-                        height: 1.3,
+                        height: 1.3.h,
                         color: isMe
                             ? Colors.black87
                             : theme.colorScheme.onSecondary,

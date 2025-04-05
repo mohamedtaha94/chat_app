@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:chat_app/widgets/chat_messages.dart';
 import 'package:chat_app/widgets/new_message.dart';
 import 'package:firebase_auth/firebase_auth.dart';
